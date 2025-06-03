@@ -39,10 +39,59 @@ function reducer(state, action){
 
 function IncomeStatement(){
     const [state, dispatch]=useReducer(reducer, initialState)
-    return(
-    <div> 
-        <h1>jjjj</h1>
-        </div>
-)}
+const handleChange=()=>{
+    dispatch({
+        type:"update",
+        field,
+        index,
+        value,
+    })
+}
+    return (
+      <div>
+        <table>
+          <tr>
+            <th>Activity</th>
+            <th> Income</th>
+            <th> Expenditure</th>
+            <th> Balance</th>
+          </tr>
+          <tbody>
+            {state.entries.map((index, entry) => (
+              <tr key={index}>
+                <td>
+                  <input type="text"
+                   placeholder="Enter Activity" />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    value={entry.income}
+                    onChange={(e) => {
+                      handleChange(index, "income", e.target.value);
+                    }}
+                  />
+                </td>
+                <td>
+                    <input
+                    type="number"
+                    value={entry.income}
+                    onChange={(e)=>{
+                        handleChange(index,"income", e.target.value)
+                    }}
+                    />
+                </td>
+              </tr>
+            ))}
+            <tr>
+                <th>
+                    Total Balance
+                </th>
+                
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );}
 export default IncomeStatement;
 
