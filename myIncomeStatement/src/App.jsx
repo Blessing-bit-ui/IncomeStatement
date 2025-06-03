@@ -1,13 +1,11 @@
-import Home from './Home'
-import IncomeStatemente from './IncomeStatemente'
 
+import IncomeStatement from './IncomeStatement'
 
 
 function App() {
     return(
         <div>
-            <Home />
-            <IncomeStatemente />
+            <IncomeStatement />
         </div>
     )
 
